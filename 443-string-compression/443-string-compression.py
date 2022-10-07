@@ -6,6 +6,7 @@ class Solution:
         
         if len(chars) <= 1:
             return len(chars)
+        
         while b < len(chars):
             
             if chars[a] == chars[b]:
@@ -13,6 +14,7 @@ class Solution:
                 while b < len(chars) and chars[b] == chars[a]:
                     b+=1
                     ctr+=1
+                    
                 s = chars[a]
                 s = s + str(ctr)
                 for i in s:
@@ -31,6 +33,6 @@ class Solution:
                 if b == len(chars):
                     chars[ctr1] = chars[a]
                     ctr1 += 1
+                    
         chars = chars[0:ctr1]
-        print(chars)
         return len(chars)
