@@ -8,12 +8,12 @@ class Solution:
         
         sufixPro = [1]
         pro = 1
-        for i in range(len(nums)-1):
-            pro*=nums[len(nums)-1-i]
-            sufixPro.insert(0,pro)
-        
-        res = []
         for i in range(len(nums)):
-            res.append(prefixPro[i]*sufixPro[i])
+            pro*=nums[len(nums)-i-1]
+            sufixPro.insert(0,pro)
+            
+        answer = []
+        for i in range(len(nums)):
+            answer.append(prefixPro[i]*sufixPro[i+1])
         
-        return res
+        return answer
