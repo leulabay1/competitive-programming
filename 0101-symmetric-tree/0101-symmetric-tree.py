@@ -15,6 +15,5 @@ class Solution:
                 left = symetry(q.left, p.right)
                 right = symetry(q.right, p.left)
                 return left and right
-        ans = symetry(root.right, root.left)
         
-        return ans
+        return symetry(root.right, root.left)
