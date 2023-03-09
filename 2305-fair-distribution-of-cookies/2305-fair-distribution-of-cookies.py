@@ -19,7 +19,7 @@ class Solution:
                 child[j] -= cookies[i]
             return temp
                     
-                
+        cookies.sort(reverse=True)
         return backT(0, fair)
         
                 
