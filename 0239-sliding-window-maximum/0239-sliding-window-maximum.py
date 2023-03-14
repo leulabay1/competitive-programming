@@ -8,7 +8,7 @@ class Solution:
                 que.pop()
             que.append(nums[j])
             if j >= k and nums[i-1] == que[0]:
-                del que[0]
+                que.popleft()
             if j - i + 1 == k:
                 ans.append(que[0])
             j += 1
