@@ -13,7 +13,7 @@ class Solution:
                 value = 1 - value
                 return str(value)
                 
-            return str(1)
+            return "1"
                 
         
             
