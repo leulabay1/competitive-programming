@@ -1,10 +1,10 @@
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-        self.ans = []
+        ans = []
         def combine(nums, s, idx):
             if s == target:
                 nums_ = nums.copy()
-                self.ans.append(nums_)
+                ans.append(nums_)
                 return
             if s > target:
                 return
@@ -16,4 +16,4 @@ class Solution:
                 nums.pop()
                 s -= candidates[i]
         combine([], 0, 0)
-        return self.ans
+        return ans
