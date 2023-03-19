@@ -4,7 +4,8 @@ class Solution:
         for i in strs[1:]:
             temp = ""
             l = 0
-            while l < min(len(i),len(ans)):
+            n = min(len(i),len(ans))
+            while l < n:
                 if ans[l] == i[l]:
                     temp += ans[l]
                 else:
