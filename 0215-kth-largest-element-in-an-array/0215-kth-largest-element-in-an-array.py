@@ -13,7 +13,6 @@ class Solution:
 
         def quick(left, right):
             pivot = partition(left, right)
-            print(pivot)
             if pivot == len(nums) - k:
                 return nums[pivot]
             elif pivot > len(nums) - k:
