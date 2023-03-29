@@ -10,4 +10,4 @@ class Solution:
                     break
                 ans.append(1 + ans[i])
                 cou += 1
-        return ans            
+        return ans
