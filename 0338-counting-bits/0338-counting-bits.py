@@ -4,10 +4,12 @@ class Solution:
             return [0]
         ans = [0]
         cou = 1
-        while cou <= n:
-            for i in range(len(ans)):
+        leng = 1
+        while cou <= n: 
+            for i in range(leng):
                 if cou > n:
                     break
                 ans.append(1 + ans[i])
                 cou += 1
+            leng *= 2
         return ans
