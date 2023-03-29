@@ -1,6 +1,6 @@
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        tempDic = Counter(nums)
+        tempDic = set(nums)
         minVal = min(nums)
         maxVal = max(nums)
         if minVal != 0:
