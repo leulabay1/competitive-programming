@@ -11,13 +11,13 @@ class Solution:
         if grid[0][0]:
             return -1
         
-        visited = set()
+        visited = set([(0,0)])
         que = deque([(0,0)])
         parent = {(0,0): None}
         
         while que:
             ro, co = que.popleft()
-            visited.add((ro,co))
+            
             
             if (ro, co) == (n-1, m-1):
                 path = []
@@ -31,6 +31,7 @@ class Solution:
                 newrow = row + ro
                 newcol = col + co
                 if bound(newrow, newcol) and not grid[newrow][newcol] and (newrow,newcol) not in visited and (newrow,newcol) not in que:
+                    visited.add((newrow, newcol))
                     parent[(newrow, newcol)] = (ro, co)
                     que.append((newrow, newcol))
         return -1
