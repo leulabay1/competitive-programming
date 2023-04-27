@@ -30,7 +30,7 @@ class Solution:
             for row, col in direction:
                 newrow = row + ro
                 newcol = col + co
-                if bound(newrow, newcol) and not grid[newrow][newcol] and (newrow,newcol) not in visited and (newrow,newcol) not in que:
+                if bound(newrow, newcol) and not grid[newrow][newcol] and (newrow,newcol) not in visited:
                     visited.add((newrow, newcol))
                     parent[(newrow, newcol)] = (ro, co)
                     que.append((newrow, newcol))
