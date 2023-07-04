@@ -2,17 +2,18 @@ class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         ans = []
         n = len(nums)
-        def Tracker(arr, visited, i):
+        def backT(arr, check):
             nonlocal n
             if len(arr) == n:
                 ans.append(arr.copy())
                 return
-            for j in range(n):
-                if j not in visited:
-                    visited.add(j)
-                    arr.append(nums[j])
-                    Tracker(arr, visited, j)
+            for i in range(n):
+                if not 1<<i & check:
+                    check |= 1<<i
+                    arr.append(nums[i])
+                    backT(arr, check)
+                    check &= ~(1<<i)
                     arr.pop()
-                    visited.remove(j)
-        Tracker([], set(), -1)
+            return
+        backT([], 0)
         return ans
