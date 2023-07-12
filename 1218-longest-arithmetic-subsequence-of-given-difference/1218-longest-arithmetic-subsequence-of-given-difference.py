@@ -6,5 +6,4 @@ class Solution:
             before_num = dp.get(num - dif, 0)
             dp[num] = before_num + 1
             ans = max(dp[num], ans)
-        print(dp)
         return ans
