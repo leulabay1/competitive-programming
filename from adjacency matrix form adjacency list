@@ -1,0 +1,9 @@
+n = int(input())
+graph = [[]for _ in range(n)]
+for i in range(n):
+    row = list(map(int, input().split()))
+    for j in range(n):
+        if row[j]:
+            graph[i].append(str(j + 1))
+for nei in graph:
+    print(len(nei), " ".join(nei))
