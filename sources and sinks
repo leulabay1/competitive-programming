@@ -1,0 +1,27 @@
+n = int(input())
+
+source = set()
+sink = set()
+ex = set()
+for i in range(n):
+    row = list(map(int, input().split()))
+    for j in range(n):
+        if row[j]:
+            if i + 1 not in ex:
+                if i + 1 not in sink:
+                    source.add(i + 1)
+                else:
+                    ex.add(i + 1)
+                    sink.remove(i + 1)
+            if j + 1 not in ex:
+                if j + 1 not in source:
+                    sink.add(j + 1)
+                else:
+                    ex.add(j + 1)
+                    source.remove(j + 1)
+for i in range(1, n + 1):
+    if i not in sink and i not in source and i not in ex:
+        source.add(i)
+        sink.add(i)
+print(len(source)," ".join(map(str, sorted(list(source)))))
+print(len(sink), " ".join(map(str, sorted(list(sink)))))
