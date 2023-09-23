@@ -1,18 +1,23 @@
 class Solution:
     def longestStrChain(self, words: List[str]) -> int:
-        def compare(word1, word2):
-            if len(word1) != len(word2) + 1:
-                return False
-            for i in range(len(word1)):
-                if word1[:i] + word1[i + 1:] == word2:
-                    return True
-            return False
-        
-        words.sort(key = lambda word: len(word))
-        dp = [1]*len(words)
-        
-        for i in range(len(words)):
-            for j in range(i):
-                if compare(words[i], words[j]):
-                    dp[i] = max(dp[j] + 1, dp[i])
-        return max(dp)
+        mem = {}
+        ws = collections.defaultdict(set)
+        for w in words:
+            ws[len(w)].add(w)
+        l = list(ws.keys())
+        l.sort()
+        ret = 1
+        for ll in l:
+            if ll-1 not in ws:
+                for w in ws[ll]:
+                    mem[w] = 1
+            else:
+                for w in ws[ll]:
+                    m = 0
+                    for i in range(ll):
+                        ww = w[:i] + w[i+1:]
+                        if ww in mem:
+                            m = max(m, mem[ww])
+                    mem[w] = m+1
+                    ret = max(ret, m+1)
+        return ret
