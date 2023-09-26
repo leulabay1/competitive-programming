@@ -7,13 +7,10 @@ class Trie:
         node = self.root
         for i in range(len(word)):
             idx = ord(word[i]) - 97
-            if node.children[idx]:
-                node = node.children[idx]
-            else:
+            if not node.children[idx]:
                 node.children[idx] = TrieNode()
-                node = node.children[idx]
-            if i == len(word) - 1:
-                node.is_end = True
+            node = node.children[idx]
+        node.is_end = True
 
     def search(self, word: str) -> bool:
         node = self.root
@@ -21,11 +18,8 @@ class Trie:
             idx = ord(word[i]) - 97
             if not node.children[idx]:
                 return False
-            if i == len(word) - 1 and not node.children[idx].is_end:
-                return False
             node = node.children[idx]
-        else:
-            return True
+        return not not node.is_end
             
     def startsWith(self, prefix: str) -> bool:
         node = self.root
@@ -34,8 +28,7 @@ class Trie:
             if not node.children[idx]:
                 return False
             node = node.children[idx]
-        else:
-            return True
+        return True
         
 class TrieNode:
     def __init__(self):
