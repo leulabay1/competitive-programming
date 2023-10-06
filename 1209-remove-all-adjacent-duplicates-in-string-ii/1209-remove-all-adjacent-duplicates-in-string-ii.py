@@ -5,16 +5,17 @@ class Solution:
         cur = []
         
         for i in range(len(s)):
+                    
             if cur and cur[-1] == s[i]:
                 cur.append(s[i])
             else:
                 cur = [s[i]]
                 
             stack.append(s[i])
-        
+            
             if len(cur) == k:
-                for i in range(k):
-                    stack.pop()
+                for _ in range(k):
+                    letter = stack.pop()
                     
                 j = len(stack) - 1
                 cur = [stack[-1]] if stack else []
