@@ -21,5 +21,5 @@ class Solution:
         
         dfs(root, 0, 0)
         
-        return max([max(arr) - min(arr) + 1 for arr in ans.values()])
+        return max([max(ans[key_]) - min(ans[key_]) + 1 for key_ in ans])
             
