@@ -15,14 +15,14 @@ class Solution:
                 ans.append(-1)
                 continue
             
-            que = deque()
+            que = []
             visited = set()
             que.append((query[0], 1))
             
             flag = False
             while que:
                 
-                node, val = que.popleft()
+                node, val = que.pop()
                 visited.add(node)
                 
                 if node == query[1]:
