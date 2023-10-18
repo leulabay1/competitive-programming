@@ -11,7 +11,7 @@ class Solution:
                     return False
             return True
         
-        
+        rank = {str_:1 for str_ in strs}
         UF = {}
         
         def find(str_):
@@ -28,7 +28,12 @@ class Solution:
             pr1, pr2 = find(str_1), find(str_2)
             
             if pr1 != pr2:
-                UF[pr2] = pr1
+                if rank[pr1] > rank[pr2]:
+                    UF[pr2] = pr1
+                    rank[pr1] += rank[pr2]
+                else:
+                    UF[pr1] = pr2
+                    rank[pr2] += rank[pr1]
                 
         
         for i in range(len(strs)):
