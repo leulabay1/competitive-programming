@@ -28,7 +28,7 @@ class Solution:
             pr1, pr2 = find(str_1), find(str_2)
             
             if pr1 != pr2:
-                if rank[pr1] > rank[pr2]:
+                if rank[pr1] < rank[pr2]:
                     UF[pr2] = pr1
                     rank[pr1] += rank[pr2]
                 else:
