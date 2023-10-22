@@ -14,4 +14,5 @@ class Solution:
                 for k in range(j + 1, len(arr) + 1):
                     if prefix_xor[j] ^ prefix_xor[i] == prefix_xor[k] ^ prefix_xor[j]:
                         count += 1
+        
         return count
