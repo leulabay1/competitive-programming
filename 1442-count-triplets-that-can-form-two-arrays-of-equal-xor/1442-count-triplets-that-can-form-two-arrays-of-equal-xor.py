@@ -1,17 +1,17 @@
 class Solution:
     def countTriplets(self, arr: List[int]) -> int:
         
-        prefix = [0 for _ in range(len(arr) + 1)]
-        prefix[0] = arr[0]
-        cur = arr[0]
+        prefix_xor = [None for _ in range(len(arr) + 1)]
+        prefix_xor[0] = arr[0]
+        
         for idx in range(len(arr)):
-            prefix[idx + 1] = cur = cur ^ arr[idx]
+            prefix_xor[idx + 1] = prefix_xor[idx] ^ arr[idx]
 
         count = 0
             
         for i in range(len(arr) + 1):
             for j in range(i + 1, len(arr) + 1):
                 for k in range(j + 1, len(arr) + 1):
-                    if prefix[j] ^ prefix[i] == prefix[k] ^ prefix[j]:
+                    if prefix_xor[j] ^ prefix_xor[i] == prefix_xor[k] ^ prefix_xor[j]:
                         count += 1
         return count
